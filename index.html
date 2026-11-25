@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FAF7F2" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="LTPS Night" />
+    <meta
+      name="description"
+      content="One-night C exam revision for LTPS (25CSH-107): line-by-line code recall, 16 memory tricks, 52 PYQ answers, flashcards, and A4 cheat sheet."
+    />
+
+    <!-- Open Graph / WhatsApp / Instagram / Telegram / Discord / LinkedIn -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="LTPS Night" />
+    <meta property="og:title" content="LTPS Night — One-Night C Exam Revision (25CSH-107)" />
+    <meta
+      property="og:description"
+      content="Line-by-line C code recall, 16 memory tricks, 52 PYQs with exam answers, swipeable flashcards, and printable A4 cheat sheet."
+    />
+    <meta property="og:image" content="/og-card.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LTPS Night — 25CSH-107 One-Night C Exam Revision" />
+
+    <!-- X / Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LTPS Night — One-Night C Exam Revision (25CSH-107)" />
+    <meta
+      name="twitter:description"
+      content="Line-by-line C code recall, 16 memory tricks, 52 PYQs with exam answers, swipeable flashcards, and printable A4 cheat sheet."
+    />
+    <meta name="twitter:image" content="/og-card.png" />
+
+    <title>LTPS Night — 25CSH-107 One-Night C Revision</title>
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('ltps-theme');
+          var theme =
+            saved === 'dark' || saved === 'light'
+              ? saved
+              : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                ? 'dark'
+                : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', theme === 'dark' ? '#12100D' : '#FAF7F2');
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'light');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

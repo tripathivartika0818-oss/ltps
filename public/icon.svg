@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="28" fill="#16130F" />
+  <text x="22" y="84" font-family="system-ui, sans-serif" font-weight="700" font-size="44" fill="#FAF7F2" letter-spacing="-2">ltps</text>
+  <circle cx="104" cy="78" r="8" fill="#F0501E" />
+</svg>

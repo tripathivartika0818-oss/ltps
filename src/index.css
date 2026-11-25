@@ -1,0 +1,211 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #FAF7F2;
+  --surface: #FFFFFF;
+  --surface-2: #F3EEE5;
+  --ink: #16130F;
+  --muted: #6F695D;
+  --line: #E7E0D3;
+  --ember: #F0501E;
+  --unit-1: #2F7D6B;
+  --unit-2: #C98A12;
+  --unit-3: #F0501E;
+  --unit-1-ink: #1F5C4E;
+  --unit-2-ink: #845804;
+  --unit-3-ink: #BD350B;
+  --highlight: #FDE047;
+  --highlight-soft: #FEF08A;
+  --shadow-card: 0 1px 2px rgba(20, 16, 10, 0.05), 0 16px 40px -16px rgba(20, 16, 10, 0.14);
+  --shadow-card-hover: 0 2px 6px rgba(20, 16, 10, 0.07), 0 20px 44px -14px rgba(20, 16, 10, 0.18);
+  --font-display: 'Bricolage Grotesque Variable', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Instrument Sans Variable', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, monospace;
+  --font-serif: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #12100D;
+  --surface: #1C1915;
+  --surface-2: #25211B;
+  --ink: #F3EEE5;
+  --muted: #9B9486;
+  --line: #2E2A23;
+  --unit-1-ink: #5EC9AF;
+  --unit-2-ink: #F2BA49;
+  --unit-3-ink: #FF8259;
+  --highlight: #FDE047;
+  --highlight-soft: rgba(253, 224, 71, 0.22);
+  --shadow-card: none;
+  --shadow-card-hover: none;
+}
+
+@layer base {
+  html {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--highlight);
+    color: #16130F;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--line);
+    border-radius: 999px;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+.font-story-serif {
+  font-family: var(--font-serif);
+}
+
+.surface-card {
+  background-color: var(--surface);
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+.surface-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.btn-ink {
+  background-color: var(--ink);
+  color: var(--bg);
+  border-radius: 999px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 20px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 120ms ease, opacity 120ms ease;
+}
+
+.btn-ink:active {
+  transform: scale(0.98);
+}
+
+.btn-pill {
+  background-color: var(--surface-2);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 18px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 120ms ease, border-color 120ms ease;
+}
+
+.btn-pill:hover {
+  border-color: var(--muted);
+}
+
+.btn-pill:active {
+  transform: scale(0.98);
+}
+
+@keyframes nowPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.45;
+  }
+}
+
+.now-pulse {
+  animation: nowPulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .now-pulse {
+    animation: none;
+  }
+  .surface-card,
+  .btn-ink,
+  .btn-pill {
+    transition: none;
+  }
+}
+
+.code-preview-fade {
+  -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+  mask-image: linear-gradient(to bottom, #000 58%, transparent 100%);
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 10mm;
+  }
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only-main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: none !important;
+  }
+}
